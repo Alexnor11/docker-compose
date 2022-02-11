@@ -13,7 +13,7 @@ services:
   backend:
     depends_on:
       - db-postgres
-      - migrations
+#      - migrations
     image: stocks_products
     build:
 #      context: stocks_products
@@ -23,7 +23,7 @@ services:
     ports:
       - "8000:8000"
     command: >
-      sh -c "python manage.py migrate &&
+      sh -c "python manage.py migrate --noinput &&
             gunicorn stocks_products.wsgi -b 0.0.0.0:8000"
     volumes:
       - .:/stocks_products
