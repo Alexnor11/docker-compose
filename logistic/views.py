@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.pagination import LimitOffsetPagination
@@ -23,3 +24,8 @@ class StockViewSet(ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['products', ]
     # pagination_class = LimitOffsetPagination
+
+
+def index(request):
+    return HttpResponse("Страница приложения docker compose.<br>"
+                        "для запуска api перейдите /api/v1/")
