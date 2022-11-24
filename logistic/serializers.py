@@ -1,4 +1,4 @@
-import django_filters
+# import django_filters
 from rest_framework import serializers
 
 from logistic.models import Product, Stock, StockProduct
@@ -16,6 +16,7 @@ class ProductPositionSerializer(serializers.ModelSerializer):
     class Meta:
         model = StockProduct
         fields = ['product', 'quantity', 'price']
+
     pass
 
 

@@ -18,11 +18,13 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from logistic.views import index
 from django.urls import include, path
+from logistic.views import sample_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('logistic.urls')),
     path('home/', index),
+    path('test/', sample_view),
 ]
 
 # Подключение статических файлов к проекту

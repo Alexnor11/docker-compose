@@ -1,6 +1,8 @@
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 from django.http import HttpResponse
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.filters import SearchFilter, OrderingFilter
+from rest_framework.filters import SearchFilter
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.viewsets import ModelViewSet
 
@@ -13,7 +15,8 @@ class ProductViewSet(ModelViewSet):
     serializer_class = ProductSerializer
     # при необходимости добавьте параметры фильтрации
     filter_backends = [DjangoFilterBackend, SearchFilter]
-    search_fields = ['title', 'description', ]  # Поиск по слову в названии и описании
+    # Поиск по слову в названии и описании
+    search_fields = ['title', 'description', ]
     pagination_class = LimitOffsetPagination
 
 
@@ -29,3 +32,8 @@ class StockViewSet(ModelViewSet):
 def index(request):
     return HttpResponse("Страница приложения docker compose.<br>"
                         "для запуска api перейдите /api/v1/")
+
+
+@api_view(['GET'])
+def sample_view(request):
+    return Response('Страница для тестов!')
