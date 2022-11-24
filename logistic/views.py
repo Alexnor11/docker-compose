@@ -36,4 +36,4 @@ def index(request):
 
 @api_view(['GET'])
 def sample_view(request):
-    return Response('Страница для тестов - изменилась!')
+    return Response('Внес изменения 24-11-2022!')
